@@ -1,21 +1,20 @@
 import React from 'react';
-import {YellowBox} from 'react-native';
+import {YellowBox, StatusBar} from 'react-native';
 
 import Footer from './components/Footer';
-import createRoutes from './routes';
-import NavigationService from './components/NavigationService';
+import App from './App';
+
+const AppContext = React.createContext({});
 
 YellowBox.ignoreWarnings(['Warning: ViewPagerAndroid']);
-export default function App() {
-  const Routes = createRoutes();
+function Index() {
+  const [show, setShow] = React.useState(true);
   return (
-    <>
-      <Routes
-        ref={navigatorRef => {
-          NavigationService.setTopLevelNavigator(navigatorRef);
-        }}
-      />
-      <Footer />
-    </>
+    <AppContext.Provider value={{show, setShow}}>
+      <StatusBar barStyle="light-content" backgroundColor="rgb(23, 105, 170)" />
+      <App />
+      {show && <Footer />}
+    </AppContext.Provider>
   );
 }
+export {Index as default, AppContext};

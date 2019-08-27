@@ -6,7 +6,6 @@ import Title from '../../components/Title';
 
 export default function Tab1({navigation}) {
   const {routeName} = navigation.state;
-  console.log('Tab1', routeName);
   return (
     <Container>
       <Title>Tab1</Title>

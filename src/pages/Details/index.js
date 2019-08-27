@@ -5,10 +5,17 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 
 import Container from '../../components/Container';
 import Title from '../../components/Title';
+import {AppContext} from '../../index';
 
 export default function Details({navigation}) {
   const {routeName} = navigation.state;
-  console.log('Details', routeName);
+  const context = React.useContext(AppContext);
+  React.useEffect(() => {
+    context.setShow(false);
+    return () => {
+      context.setShow(true);
+    };
+  });
   return (
     <Container>
       <Title>Details</Title>
@@ -25,7 +32,6 @@ Details.navigationOptions = ({navigation}) => ({
   title: 'Details',
   headerLeft: () => {
     const routeName = navigation.getParam('routeName', 'Tab1');
-    console.log('Details.navigationOptions', routeName);
     return (
       <TouchableOpacity
         onPress={() => {
