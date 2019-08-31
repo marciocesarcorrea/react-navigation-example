@@ -130,7 +130,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.reactnavigationexample"
+        applicationId "com.marciocorrea.reactnavigationexample"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
