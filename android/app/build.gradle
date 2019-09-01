@@ -83,6 +83,7 @@ project.ext.vectoricons = [
     iconFontNames: [ 'MaterialIcons.ttf', 'EvilIcons.ttf' ] // Name of the font files you want to copy
 ]
 apply from: "../../node_modules/react-native/react.gradle"
+apply from: "../../node_modules/react-native-code-push/android/codepush.gradle"
 apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
 /**
  * Set this to true to create two separate APKs instead of one:
@@ -153,10 +154,17 @@ android {
         }
     }
     buildTypes {
+        releaseStaging {
+            buildConfigField "String", "CODEPUSH_KEY", '"A_9hxMoLWJUdeUZ6MtO6SNNnn88L59TFhrDZh"'
+            matchFallbacks = ['debug', 'release']
+        }
+
         debug {
+            buildConfigField "String", "CODEPUSH_KEY", '""'
             signingConfig signingConfigs.debug
         }
         release {
+            buildConfigField "String", "CODEPUSH_KEY", '"GXechp3EUwPTZrajXv_6hG8xpw7bDbZZTj8sz"'
             // Caution! In production, you need to generate your own keystore file.
             // see https://facebook.github.io/react-native/docs/signed-apk-android.
             signingConfig signingConfigs.debug
@@ -190,6 +198,7 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-code-push')
     implementation fileTree(dir: "libs", include: ["*.jar"])
     implementation "com.facebook.react:react-native:+"  // From node_modules
 

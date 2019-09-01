@@ -1,10 +1,11 @@
 import React from 'react';
 import {YellowBox, StatusBar} from 'react-native';
+import CodePush from 'react-native-code-push';
 
 import Footer from './components/Footer';
 import App from './App';
 
-const AppContext = React.createContext({});
+export const AppContext = React.createContext({});
 
 YellowBox.ignoreWarnings(['Warning: ViewPagerAndroid']);
 function Index() {
@@ -17,4 +18,6 @@ function Index() {
     </AppContext.Provider>
   );
 }
-export {Index as default, AppContext};
+export default CodePush({
+  checkFrequency: CodePush.CheckFrequency.ON_APP_RESUME,
+})(Index);
