@@ -5,4 +5,4 @@ Sample app using:
 - react-native-reanimated
 
 # demo
-![alt text](https://raw.githubusercontent.com/marciocesarcorrea/react-navigation-example/master/demo.gif | width=300)
+<img src="https://raw.githubusercontent.com/marciocesarcorrea/react-navigation-example/master/demo.gif" width="500">
