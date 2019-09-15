@@ -1,2 +1,5 @@
 # react-navigation-example
-Example with react-navigation
+Sample app using:
+- react-navigation
+- react-navigation-animated-switch
+- react-native-reanimated
